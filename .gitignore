@@ -37,4 +37,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# User Additions 
 *.py
+aozora_*.csv

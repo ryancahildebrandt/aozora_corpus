@@ -34,5 +34,4 @@ Huge thanks to Dr. Molly DesJardin ([*github*](https://github.com/mollydesjardin
 
 ## *Outputs*
 
-+ The compiled table with full texts, in [csv](https://github.com/ryancahildebrandt/aozora_corpus/blob/master/aozora_corpus.csv) format 
-+ The same [csv](https://github.com/ryancahildebrandt/aozora_corpus/blob/master/aozora_corpus_en.csv) with column names in english, for those interested
++ The compiled table with full texts, in [csv](https://www.kaggle.com/ryancahildebrandt/azbcorpus) format 
