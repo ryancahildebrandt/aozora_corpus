@@ -21,7 +21,7 @@ get_text_html <- function(html_path, enc){
                 html_elements(., "body") %>%
                 html_nodes(., "div.main_text") %>%
                 html_text(.) %>%
-                str_remove_all(., "\\n|\\r|\\s|（[ぁ-んァ-ン]*）|《[ぁ-んァ-ン]*》")
+                str_remove_all(., "\\n|\\r|\\s|（[ぁ-んァ-ンヽゞゝ／″＼]*）|《[ぁ-んァ-ンヽゞゝ／″＼]*》")
             },
         error = function(e){
             message("Error:")
@@ -35,7 +35,8 @@ get_text_zip <- function(zip, txt){
   unz(zip, txt) %>%
       read_lines(., locale = locale(encoding = "SHIFT-JIS")) %>%
       paste0(., collapse = "") %>%
-      str_remove_all(., "\\n|\\r|\\s|（[ぁ-んァ-ンヽ]*）|《[ぁ-んァ-ンヽ]*》|［＃.*?］") %>%
+      str_remove_all(., "(［＃ここで字下げ終わり］.*)|(---.*---)") %>%
+      str_remove_all(., "\\n|\\r|\\s|（[ぁ-んァ-ンヽゞゝ／″＼]*）|《[ぁ-んァ-ンヽゞゝ／″＼]*》|［＃.*?］|｜") %>%
       list(.)
     }
 
