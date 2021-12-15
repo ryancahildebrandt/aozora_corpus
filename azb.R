@@ -36,7 +36,7 @@ get_text_zip <- function(zip, txt){
     read_lines(., locale = locale(encoding = "SHIFT-JIS")) %>%
     paste0(., collapse = "") %>%
     str_remove_all(., "(---.*---)") %>%
-    str_remove_all(., "底本：.*") %>%
+    str_remove_all(., "底本(：|:).*") %>%
     str_remove_all(., "\\n|\\r|\\s|（[ぁ-んァ-ンヽゞゝ／″＼]*）|《[ぁ-んァ-ンヽゞゝ／″＼]*》|［＃.*?］|｜|[／″＼]|『.*?』")
 }
 
