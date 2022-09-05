@@ -3,7 +3,7 @@
 .Rapp.history
 
 # Session Data files
-.RData
+*.RData
 
 # User-specific files
 .Ruserdata
@@ -41,3 +41,10 @@ vignettes/*.pdf
 # User Additions 
 *.py
 aozora_*.csv
+meta_*.csv
+main_*.csv
+*.Rproj
+*.Rprofile
+*~
+aozorabunko/
+renv/
