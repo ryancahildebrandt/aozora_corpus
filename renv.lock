@@ -27,10 +27,10 @@
     },
     "Matrix": {
       "Package": "Matrix",
-      "Version": "1.4-1",
+      "Version": "1.5-0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "699c47c606293bdfbc9fd78a93c9c8fe",
+      "Hash": "19d2a523548a8fd4f6460f4e61bc15fb",
       "Requirements": [
         "lattice"
       ]
@@ -185,13 +185,11 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.3.0",
+      "Version": "3.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "23abf173c2b783dcc43379ab9bba00ee",
-      "Requirements": [
-        "glue"
-      ]
+      "Hash": "78003c09d258968a4d28107e779edb10",
+      "Requirements": []
     },
     "clipr": {
       "Package": "clipr",
@@ -381,10 +379,10 @@
     },
     "gargle": {
       "Package": "gargle",
-      "Version": "1.2.0",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "9d234e6a87a6f8181792de6dc4a00e39",
+      "Hash": "cca71329ad88e21267f09255d3f008c2",
       "Requirements": [
         "cli",
         "fs",
@@ -625,10 +623,10 @@
     },
     "lifecycle": {
       "Package": "lifecycle",
-      "Version": "1.0.1",
+      "Version": "1.0.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a6b6d352e3ed897373ab19d8395c98d0",
+      "Hash": "25f74670fa7d3277fe3ad8c1712a699f",
       "Requirements": [
         "glue",
         "rlang"
@@ -866,10 +864,10 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.15.4",
+      "Version": "0.15.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c1078316e1d4f70275fc1ea60c0bc431",
+      "Hash": "6a38294e7d12f5d8e656b08c5bd8ae34",
       "Requirements": []
     },
     "reprex": {
@@ -1034,10 +1032,10 @@
     },
     "tidyr": {
       "Package": "tidyr",
-      "Version": "1.2.0",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "d8b95b7fee945d7da6888cf7eb71a49c",
+      "Hash": "cdb403db0de33ccd1b6f53b83736efa8",
       "Requirements": [
         "cpp11",
         "dplyr",
