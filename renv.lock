@@ -864,12 +864,19 @@
     },
     "renv": {
       "Package": "renv",
+<<<<<<< HEAD
       "Version": "0.17.3",
       "OS_type": NA,
       "NeedsCompilation": "no",
       "Repository": "CRAN",
       "Path": NA,
       "Source": "Repository",
+=======
+      "Version": "0.15.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6a38294e7d12f5d8e656b08c5bd8ae34",
+>>>>>>> refs/remotes/origin/main
       "Requirements": []
     },
     "reprex": {
