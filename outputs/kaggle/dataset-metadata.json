@@ -1,0 +1,33 @@
+{
+  "title": "Aozora Bunko (青空文庫) Japanese Text Corpus", 
+  "subtitle": "Centuries of Japanese literature, all in one convenient csv",
+  "description": "A compilation of the texts available through [青空文庫](https://www.aozora.gr.jp/) (Aozora Bunko Japanese Literature Corpus) into more friendly csv form, to jumpstart projects looking at written Japanese.",
+  "id": "ryancahildebrandt/azbcorpus", 
+  "licenses": [{"name": "CC0-1.0"}],
+  "resources": [
+    {
+      "path": "aozora_corpus.csv",
+      "description": "The full dataset with Japanese column headers"
+    },
+    {
+      "path": "aozora_corpus_en.csv",
+      "description": "The full dataset with English column headers"
+    },
+    {
+      "path": "main_text.csv",
+      "description": "The full texts with Japanese column headers"
+    },
+    {
+      "path": "meta_info.csv",
+      "description": "All metainfo for each work with Japanese column headers"
+    },
+    {
+      "path": "meta_info_en.csv",
+      "description": "All metainfo for each work with English column headers"
+    },
+    {
+      "path": "aozora_corpus.db",
+      "description": "DuckDB database file for the full dataset with Japanese column headers"
+    }
+  ]
+}

@@ -34,4 +34,4 @@ Huge thanks to Dr. Molly DesJardin ([*github*](https://github.com/mollydesjardin
 
 ## *Outputs*
 
-+ The compiled table with full texts, in [csv](https://www.kaggle.com/ryancahildebrandt/azbcorpus) format 
++ The compiled table with full texts, hosted on [Kaggle](https://www.kaggle.com/ryancahildebrandt/azbcorpus) in csv and DuckDB database formats 
