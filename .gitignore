@@ -48,3 +48,4 @@ main_*.csv
 *~
 aozorabunko/
 renv/
+*.db

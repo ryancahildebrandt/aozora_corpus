@@ -47,7 +47,6 @@ main_text_clean <- function(txt){
     str_remove_all(., "入力(者)?[：・「:].*")
 }
 
-<<<<<<< HEAD
 genres <- read_csv("./outputs/分類番号.csv")
 genre_list <- deframe(genres)
 
@@ -57,17 +56,6 @@ download.file("https://www.aozora.gr.jp/index_pages/list_person_all_extended_utf
 azb_meta <- read_csv(unz(temp, "list_person_all_extended_utf8.csv"))
 unlink(temp)
 
-=======
-genres <- read_csv("./data/分類番号.csv")
-genre_list <- deframe(genres)
-
-temp <- tempfile()
-download.file("https://www.aozora.gr.jp/index_pages/list_person_all_extended_utf8.zip",temp)
-azb_meta <- read_csv(unz(temp, "list_person_all_extended_utf8.csv"))
-unlink(temp)
-
-# Readin ----
->>>>>>> refs/remotes/origin/main
 meta_df_raw <- azb_meta %>%
   rowwise(.) %>%
   mutate(.,
@@ -99,35 +87,23 @@ zero_length_df <- meta_df_raw %>%
   mutate(., text_file = list(unzip(zip_path, list = TRUE)$Name)) %>%
   mutate(., main_text = get_text_zip(zip_path, text_file))
 
-<<<<<<< HEAD
 # Main dataframe compilation----
 meta_df <- bind_rows(
   html_success_df,
   byte_error_df,
   zero_length_df)  %>%
-=======
-meta_df <- bind_rows(html_success_df, byte_error_df, zero_length_df)  %>%
->>>>>>> refs/remotes/origin/main
   mutate(.,
          main_text = main_text_clean(main_text),
          分類番号 = gsub("[NDCK ]", "", 分類番号) %>% substr(., 1, 3),
          著者 = glue::glue(名, 姓)) %>%
   mutate(.,
          n_char = nchar(main_text),
-<<<<<<< HEAD
          分類 = map_chr(分類番号, ~genre_list[.x]),
          text_file = toString(text_file)
          ) %>%
   rowid_to_column(., "db_id")
 
 en_cols <- c("db_id", "work_id", "work_name", "work_name_reading", "reading_sort", "subtitle", "subtitle_reading", "original_title", "first_appearance", "category_number", "character_type", "copyright_flag", "publication_date","last_updated", "card_url", "author_id","last_name", "first_name", "last_name_reading","first_name_reading", "last_name_reading_sort", "first_name_reading_sort","last_name_romaji", "first_name_romaji", "role_flag", "date_of_birth", "date_of_death", "personal_copyright_flag", "original_name_1", "original_publisher_1", "original_first_edition_publication_year_1", "input_version_1", "proofreading_version_1", "source_text_name_1", "source_text_publisher_1", "first_edition_publication_year_1", "original_name_2", "original_publisher_2", "original_first_edition_publication_year_2", "input_version_2", "proofreading_version_2", "source_text_name_2", "source_text_publisher_2", "first_edition_publication_year_2", "entered_by", "proofread_by", "text_file_url", "text_file_last_modified", "text_file_encoding", "text_file_character_set", "text_file_modification_count", "xhtml_html_file_url", "last_updated_xhtml_html_file", "xhtml_html_file_encoding", "xhtml_html_file_character_set", "xhtml_html_modification_count", "html_path", "zip_path", "main_text", "text_file", "text_length", "author", "n_char", "genre")
-=======
-         分類 = map_chr(分類番号, ~genre_list[.x])
-         ) %>%
-  rowid_to_column(., "db_id")
-
-en_cols <- c("db_id", "work_id", "work_name", "work_name_reading","reading_sort", "subtitle", "subtitle_reading","original_title", "first_appearance", "category_number","character_type", "copyright_flag", "publication_date","last_updated", "card_url", "author_id","last_name", "first_name", "last_name_reading","first_name_reading", "last_name_reading_sort", "first_name_reading_sort","last_name-romaji", "first_name_romaji", "role_flag","date_of_birth", "date_of_death", "personal_copyright_flag","original_name_1", "original_publisher_1", "original_first_edition_publication_year_1","input_version_1", "proofreading_version_1", "source_text_name_1","source_text_publisher_1", "first_edition_publication_year_1","original_name_2", "original_publisher_2", "original_first_edition_publication_year_2","input_version_2", "proofreading_version_2", "source_text_name_2","source_text_publisher_2", "first_edition_publication_year_2","entered_by", "proofread_by","text_file_url", "text_file_last_modified", "text_file_encoding","text_file_character_set", "text_file_modification_count", "xhtml_html_file_url","last_updated_xhtml_html_file", "xhtml_html_file_encoding", "xhtml_html_file_character_set","xhtml_html_modification_count", "html_path", "zip_path","main_text", "text_file", "text_length", "author", "n_char", "genre")
->>>>>>> refs/remotes/origin/main
 meta_df_en <- meta_df %>% set_names(., en_cols)
 
 omitted_df <- azb_meta %>%
@@ -138,7 +114,6 @@ omitted_df <- azb_meta %>%
          zip_path = str_replace(`テキストファイルURL`, "https://www.aozora.gr.jp", "./aozorabunko")
   )
 
-<<<<<<< HEAD
 # Export----
 db_con <- dbConnect(
   duckdb(),
@@ -174,16 +149,3 @@ save(meta_df_en, file = "./outputs/meta_df_en.RData")
 
 #load("./outputs/meta_df.RData")
 #load("./outputs/meta_df_en.RData")
-=======
-write_csv(meta_df, file = "./data/aozora_corpus.csv")
-write_csv(meta_df_en, file = "./data/aozora_corpus_en.csv")
-
-write_csv(meta_df[c("db_id", "main_text")], file = "./data/main_text.csv")
-write_csv(meta_df %>% select(., -"main_text"), file = "./data/meta_info.csv")
-write_csv(meta_df_en %>% select(., -"main_text"), file = "./data/meta_info_en.csv")
-
-save(meta_df, file = "./data/meta_df.RData")
-save(meta_df_en, file = "./data/meta_df_en.RData")
-#load("./data/meta_df.RData")
-#load("./data/meta_df_en.RData")
->>>>>>> refs/remotes/origin/main
