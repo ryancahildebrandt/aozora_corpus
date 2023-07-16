@@ -49,3 +49,6 @@ main_*.csv
 aozorabunko/
 renv/
 *.db
+/
+outputs/kaggle/db
+

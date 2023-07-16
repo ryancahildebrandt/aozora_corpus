@@ -135,6 +135,7 @@ texts_df <- meta_df_en %>%
 dbWriteTable(db_con, "works", works_df, overwrite = TRUE)
 dbWriteTable(db_con, "authors", authors_df, overwrite = TRUE)
 dbWriteTable(db_con, "texts", texts_df, overwrite = TRUE)
+dbExecute(db_con, "EXPORT DATABASE 'db';")
 dbDisconnect(db_con, shutdown = TRUE)
 
 write_csv(meta_df, file = "./outputs/kaggle/aozora_corpus.csv")
