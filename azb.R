@@ -70,7 +70,8 @@ meta_df_raw <- azb_meta %>%
   mutate(.,
          main_text = list(get_text_html(html_path, `XHTML/HTMLファイル符号化方式`)),
          text_file = NA,
-         text_length = length(main_text))
+         text_length = length(main_text)
+         )
 
 html_success_df <- meta_df_raw %>%
   filter(., text_length == 1) %>%
@@ -95,10 +96,10 @@ meta_df <- bind_rows(
   mutate(.,
          main_text = main_text_clean(main_text),
          分類番号 = gsub("[NDCK ]", "", 分類番号) %>% substr(., 1, 3),
-         著者 = glue::glue(名, 姓)) %>%
+         著者 = glue::glue(replace_na(名, ""), replace_na(姓, ""))) %>%
   mutate(.,
          n_char = nchar(main_text),
-         分類 = map_chr(分類番号, ~genre_list[.x]),
+         分類 = purrr::map_chr(分類番号, ~genre_list[.x]),
          text_file = toString(text_file)
          ) %>%
   rowid_to_column(., "db_id")
