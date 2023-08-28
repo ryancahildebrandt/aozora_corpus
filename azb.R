@@ -116,11 +116,6 @@ omitted_df <- azb_meta %>%
   )
 
 # Export----
-db_con <- dbConnect(
-  duckdb(),
-  dbdir = "./outputs/kaggle/aozora_corpus.db",
-  )
-
 authors_df <- meta_df_en %>%
   select(., author_id, author, last_name, first_name, last_name_reading, first_name_reading, last_name_reading_sort, first_name_reading_sort, last_name_romaji, first_name_romaji, date_of_birth, date_of_death, personal_copyright_flag) %>%
   unique(.)
@@ -132,6 +127,11 @@ works_df <- meta_df_en %>%
 texts_df <- meta_df_en %>%
   select(., work_id, text_file_url, text_file_last_modified, text_file_encoding, text_file_character_set, text_file_modification_count, xhtml_html_file_url, last_updated_xhtml_html_file, xhtml_html_file_encoding, xhtml_html_file_character_set, xhtml_html_modification_count, html_path, zip_path, main_text, text_file, text_length, n_char) %>%
   unique(.)
+
+db_con <- dbConnect(
+  duckdb(),
+  dbdir = "./outputs/kaggle/aozora_corpus.db",
+)
 
 dbWriteTable(db_con, "works", works_df, overwrite = TRUE)
 dbWriteTable(db_con, "authors", authors_df, overwrite = TRUE)
