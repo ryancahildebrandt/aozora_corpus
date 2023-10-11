@@ -10,20 +10,12 @@
       "description": "The full dataset with Japanese column headers"
     },
     {
-      "path": "aozora_corpus_en.csv",
-      "description": "The full dataset with English column headers"
-    },
-    {
       "path": "main_text.csv",
       "description": "The full texts with Japanese column headers"
     },
     {
       "path": "meta_info.csv",
       "description": "All metainfo for each work with Japanese column headers"
-    },
-    {
-      "path": "meta_info_en.csv",
-      "description": "All metainfo for each work with English column headers"
     },
     {
       "path": "aozora_corpus.db",
