@@ -397,7 +397,3 @@ class AzbDB
 			) TO 'outputs/kaggle/meta_info.csv' (HEADER);")
 	end
 end
-
-
-
-
