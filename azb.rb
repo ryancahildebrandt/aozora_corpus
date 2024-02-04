@@ -5,6 +5,8 @@
 #author: Ryan Hildebrandt, github.com/ryancahildebrandt
 
 # imports
+require "parallel"
+
 require_relative "azb_utils"
 require_relative "db_class"
 
@@ -13,7 +15,8 @@ db.load_metadata()
 db.prepare_db()
 db.load_static_arrays()
 
-db.meta_df.each do |row|
+Parallel.map(db.meta_df, in_threads: 3) do |row|
+#db.meta_df.each do |row|
   row["作品ID"] = row[0]
   row["XHTML/HTMLファイル符号化方式"] = db.encoding_key[row["XHTML/HTMLファイル符号化方式"]]
   row["テキストファイル符号化方式"] = db.encoding_key[row["テキストファイル符号化方式"]]

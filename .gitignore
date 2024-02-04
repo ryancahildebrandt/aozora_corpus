@@ -7,3 +7,4 @@ aozorabunko/
 *db
 *.lock
 empties.txt
+*.wal

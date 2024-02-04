@@ -13,3 +13,5 @@ gem "nokogiri", "~> 1.15"
 gem "descriptive-statistics", "~> 2.2"
 
 gem "ruby-progressbar", "~> 1.13"
+
+gem "parallel", "~> 1.24"
