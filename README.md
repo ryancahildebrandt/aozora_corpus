@@ -3,7 +3,8 @@
 ---
 
 ---
-[*Open*](https://gitpod.io/#https://github.com/ryancahildebrandt/aozora_corpus) *in gitpod*
+[![Open in gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ryancahildebrandt/aozora_corpus)
+[![This project contains 0% LLM-generated content](https://brainmade.org/88x31-dark.png)](https://brainmade.org/)
 
 ## *Purpose*
 A compilation of the texts available through [青空文庫](https://www.aozora.gr.jp/) (Aozora Bunko Japanese Literature Corpus) into more friendly csv form, to jumpstart projects looking at written Japanese.
